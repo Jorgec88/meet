@@ -19,5 +19,5 @@ Display charts visualizing event details.
 as a user i should be able to see when i open the app display charts with the event details, so that i can select the events i have interested in.
 Given the user needs to have the details of the upcoming events, when he opens the app, then he will see display charts with all the upcoming events and their details.
 
-
+Serverless function will be used to manage on a secure way the users access to the app, using serverless technology the app can handle backend processes, provide personalized experiences, and scale according to user demand.
 
