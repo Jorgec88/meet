@@ -16,7 +16,7 @@ const oAuth2Client = new google.auth.OAuth2(
 
 module.exports.getAuthURL = async () => {
   const authUrl = oAuth2Client.generateAuthUrl({
-    access_types: 'offline',
+    access_type: 'offline',
     scope: SCOPES
   });
 
