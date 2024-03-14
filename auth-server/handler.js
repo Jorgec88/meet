@@ -105,3 +105,30 @@ headers: {
 //  };
 // });
 //};
+
+
+
+
+
+
+
+//const codeValue = document.getElementById('code');
+//      const getAccessToken = document.getElementById('getToken');
+//      const accessTokenElement = document.getElementById('accessToken');
+  //    const getToken =
+    //    'https://rlzj6od56b.execute-api.us-east-2.amazonaws.com/dev/api/token';
+
+//      getAccessToken.onclick = function () {
+  //      let code = codeValue.value;
+    //    if (decodeURIComponent(code) === code) {
+      //    code = encodeURIComponent(codeValue.value);
+        //}
+//        const getTokenRequest = getToken + '/' + code;
+//        fetch(getTokenRequest)
+  //        .then(function (response) {
+    //        return response.json();
+      //    })
+        //  .then(function (jason) {
+   //         accessTokenElement.innerText = JSON.stringify(json);
+     //     });
+    //  }; 
