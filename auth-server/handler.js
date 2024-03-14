@@ -132,3 +132,22 @@ headers: {
    //         accessTokenElement.innerText = JSON.stringify(json);
      //     });
     //  }; 
+
+
+
+
+
+
+
+//    <h4>Step 2: Get your code and exchange for an access token</h4>
+//      <p>
+//        After you are redirected back to your Meet app on GitHub, copy the code
+//        from the URI.
+//      </p>
+//      <br />
+//      <label
+//        >Code input
+//        <input id="code" type="text" value="" />
+//      </label>
+//      <button id="getToken">Get Token</button>
+//      <p id="accessToken"></p>
