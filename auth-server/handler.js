@@ -34,7 +34,6 @@ module.exports.getAuthURL = async () => {
 
 module.exports.getAccessToken = async (event) => {
   const code = decodeURIComponent(`${event.pathParameters.code}`);
-
   return new Promise((resolve, reject) => {
     oAuth2Client.getToken(code, (error, response) => {
       if (error) {
@@ -105,37 +104,3 @@ module.exports.getCalendarEvents = async (event) => {
       };
     });
 };
-
-//const codeValue = document.getElementById('code');
-//      const getAccessToken = document.getElementById('getToken');
-//      const accessTokenElement = document.getElementById('accessToken');
-//    const getToken =
-//    'https://rlzj6od56b.execute-api.us-east-2.amazonaws.com/dev/api/token';
-
-//      getAccessToken.onclick = function () {
-//      let code = codeValue.value;
-//    if (decodeURIComponent(code) === code) {
-//    code = encodeURIComponent(codeValue.value);
-//}
-//        const getTokenRequest = getToken + '/' + code;
-//        fetch(getTokenRequest)
-//        .then(function (response) {
-//        return response.json();
-//    })
-//  .then(function (jason) {
-//         accessTokenElement.innerText = JSON.stringify(json);
-//     });
-//  };
-
-//    <h4>Step 2: Get your code and exchange for an access token</h4>
-//      <p>
-//        After you are redirected back to your Meet app on GitHub, copy the code
-//        from the URI.
-//      </p>
-//      <br />
-//      <label
-//        >Code input
-//        <input id="code" type="text" value="" />
-//      </label>
-//      <button id="getToken">Get Token</button>
-//      <p id="accessToken"></p>
