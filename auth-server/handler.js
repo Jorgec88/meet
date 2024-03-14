@@ -72,7 +72,7 @@ module.exports.getCalendarEvents = async (event) => {
         calendarId: CALENDAR_ID,
         auth: oAuth2Client,
         timeMin: new Date().toISOString(),
-        sigleEvents: true,
+        singleEvents: true,
         orderBy: 'startTime'
       },
       (error, response) => {
