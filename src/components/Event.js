@@ -5,10 +5,11 @@ const Event = ({ event }) => {
 
   return (
     <li className='event'>
-      <h2>{event.summary}</h2>
+      <h3>{event.summary}</h3>
+      <p>{event.created}</p>
       <p>{event.location}</p>
       <button
-        className='details-button'
+        className='details-btn'
         onClick={() => {
           setShowDetails(!showDetails);
         }}
