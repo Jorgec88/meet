@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 const NumberOfEvents = ({ setCurrentNOE }) => {
-  //Add a new state for the input field so that the value can be accessed
   const [query, setQuery] = useState(32);
   const [error, setError] = useState('');
 
@@ -11,13 +10,12 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
     setCurrentNOE(value);
   };
 
-  if (isNaN(value) || value <=0) {
+  if (isNaN(value) || value <= 0) {
     setError('Enter a positive number');
-  } else{
+  } else {
     setError('');
     setCurrentNOE(parseInt(value, 10));
-   }
-  };
+  }
 
   return (
     <div>
