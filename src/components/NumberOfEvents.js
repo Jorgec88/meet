@@ -1,27 +1,26 @@
 import { useState } from 'react';
 
 const NumberOfEvents = ({ setCurrentNOE }) => {
-  const [query, setQuery] = useState(32);
+  const [query, setQuery] = useState('32');
   const [error, setError] = useState('');
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
     setQuery(value);
-    setCurrentNOE(value);
-  };
 
-  if (isNaN(value) || value <= 0) {
-    setError('Enter a positive number');
-  } else {
-    setError('');
-    setCurrentNOE(parseInt(value, 10));
-  }
+    if (isNaN(value) || parseInt(value, 10) <= 0) {
+      setError('Enter a positive number');
+    } else {
+      setError('');
+      setCurrentNOE(parseInt(value, 10));
+    }
+  };
 
   return (
     <div>
       <label htmlFor='number-of-events-input'>Number of Events: </label>
       <input
-        id='number-of-events'
+        id='number-of-events-input'
         type='text'
         value={query}
         onChange={handleInputChanged}
