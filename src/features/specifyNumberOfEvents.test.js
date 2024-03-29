@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-node-access */
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, waitFor, within } from '@testing-library/react';
 import App from '../App';
@@ -41,9 +42,10 @@ defineFeature(feature, (test) => {
       const user = userEvent.setup();
       AppComponent = render(<App />);
       const AppDOM = AppComponent.container.firstChild;
-      const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
-      const numberOfEventsInput =
-        within(NumberOfEventsDOM).queryByRole('spinbutton');
+      const numberOfEventsInput = AppDOM.querySelector(
+        '#number-of-events-input'
+      );
+      expect(numberOfEventsInput).toBeInTheDocument();
       await user.type(numberOfEventsInput, '{backspace}{backspace}10');
     });
 

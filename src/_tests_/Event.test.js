@@ -1,3 +1,7 @@
+/* eslint-disable testing-library/no-render-in-setup */
+/* eslint-disable testing-library/prefer-presence-queries */
+/* eslint-disable testing-library/no-node-access */
+/* eslint-disable testing-library/prefer-screen-queries */
 import { render } from '@testing-library/react';
 import Event from '../components/Event';
 import userEvent from '@testing-library/user-event';
@@ -57,9 +61,11 @@ describe('<Event /> component', () => {
 
     await user.click(EventComponent.queryByText('hide details'));
     expect(
-      EventComponent.container.querySelector('.details')
+      EventComponentDOM.container.querySelector('.details')
     ).not.toBeInTheDocument();
-    expect(EventComponent.queryByText('hide details')).not.toBeInTheDocument();
-    expect(EventComponent.queryByText('show details')).toBeInTheDocument();
+    expect(
+      EventComponentDOM.queryByText('hide details')
+    ).not.toBeInTheDocument();
+    expect(EventComponentDOM.queryByText('show details')).toBeInTheDocument();
   });
 });

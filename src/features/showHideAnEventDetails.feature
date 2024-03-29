@@ -1,4 +1,4 @@
-Feature: Show/Hide Event Details
+Feature: Show Hide Event Details
 
     Scenario: When the details of an event are hidden by default.
         Given the main page is open

@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/no-render-in-setup */
 import userEvent from '@testing-library/user-event';
 import NumberOfEvents from '../components/NumberOfEvents';
 import { render } from '@testing-library/react';
@@ -6,7 +8,7 @@ describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsComponent;
   beforeEach(() => {
     NumberOfEventsComponent = render(
-      <NumberOfEvents setNumberOfEvents={() => {}} />
+      <NumberOfEvents setCurrentNOE={() => {}} />
     );
   });
 

@@ -1,3 +1,6 @@
+/* eslint-disable testing-library/no-render-in-setup */
+/* eslint-disable testing-library/render-result-naming-convention */
+/* eslint-disable testing-library/no-node-access */
 import { render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
@@ -15,7 +18,7 @@ describe('<App /> component', () => {
     expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
   });
   test('renders NumberOfEvents', () => {
-    expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
+    expect(AppDOM.querySelector('#number-of-events-input')).toBeInTheDocument();
   });
 });
 
@@ -42,9 +45,10 @@ describe('<App /> integration', () => {
     );
 
     expect(allRenderedEventItems.length).toBe(berlinEvents.length);
-  });
-  allRenderedEventItems.forEach((event) => {
-    expect(event.textContent).toContain('Berlin, Germany');
+
+    allRenderedEventItems.forEach((event) => {
+      expect(event.textContent).toContain('Berlin, Germany');
+    });
   });
 });
 
@@ -53,8 +57,7 @@ test('number of events rendered matches the number input by the user', async () 
   const AppComponent = render(<App />);
   const AppDOM = AppComponent.container.firstChild;
 
-  const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
-  const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+  const NumberOfEventsInput = AppDOM.querySelector('#number-of-events-input');
   await user.type(NumberOfEventsInput, '{backspace}{backspace}10');
 
   const EventListDOM = AppDOM.querySelector('#event-list');

@@ -1,6 +1,7 @@
+/* eslint-disable testing-library/no-node-access */
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, within, waitFor } from '@testing-library/react';
-import { getEvents } from '../mock-data';
+import allEvents from '../mock-data';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 
@@ -104,7 +105,6 @@ defineFeature(feature, (test) => {
       async () => {
         const EventListDOM = AppDOM.querySelector('#event-list');
         const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-        const allEvents = await getEvents();
         const berlinEvents = allEvents.filter(
           (event) => event.location === citySearchInput.value
         );
