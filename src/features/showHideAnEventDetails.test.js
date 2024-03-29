@@ -71,7 +71,7 @@ defineFeature(feature, (test) => {
       EventComponent = render(<Event event={allEvents[0]} />);
       EventComponentDOM = EventComponent.container.firstChild;
       const user = userEvent.setup();
-      await user.click(EventComponent.queryByText('Show Dqetails'));
+      await user.click(EventComponent.queryByText('Show Details'));
       expect(EventComponentDOM.querySelector('.details')).toBeInTheDocument();
     });
 
