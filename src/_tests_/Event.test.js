@@ -61,11 +61,9 @@ describe('<Event /> component', () => {
 
     await user.click(EventComponent.queryByText('hide details'));
     expect(
-      EventComponentDOM.container.querySelector('.details')
+      EventComponent.container.querySelector('.details')
     ).not.toBeInTheDocument();
-    expect(
-      EventComponentDOM.queryByText('hide details')
-    ).not.toBeInTheDocument();
-    expect(EventComponentDOM.queryByText('show details')).toBeInTheDocument();
+    expect(EventComponent.queryByText('hide details')).not.toBeInTheDocument();
+    expect(EventComponent.queryByText('show details')).toBeInTheDocument();
   });
 });
