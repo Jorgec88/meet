@@ -3,7 +3,7 @@ import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import './App.css';
 
 const App = () => {
@@ -13,8 +13,14 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState('see all cities');
   const [infoAlert, setInfoAlert] = useState('');
   const [errorAlert, setErrorAlert] = useState('');
+  const [warningAlert, setWarningAlert] = useState('');
 
   useEffect(() => {
+    if (navigator.onLine) {
+      setWarningAlert('');
+    } else {
+      setWarningAlert('The app is currently offline');
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -30,9 +36,12 @@ const App = () => {
 
   return (
     <div className='App'>
+      <h1>Meet App</h1>
+      <p>Choose your nearest city</p>
       <div className='alerts-container'>
-        {infoAlert.length ? <infoAlert text={infoAlert} /> : null}
+        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
       <CitySearch
         allLocations={allLocations}
